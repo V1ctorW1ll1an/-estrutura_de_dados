@@ -22,9 +22,20 @@ void push(int valor, int pilha[TAM], int *topo){
 
 }
 
+void pop(int pilha[TAM], int *topo){
+    if(*topo == -1){
+        std::cout << "A pilha já está vazia";
+    }
+    else{
+        std::cout << "Valor removido: " << pilha[*topo] << std::endl;
+        pilha[*topo] = 0;
+        *topo = *topo - 1;
+    }
+}
+
 int main(){
     int pilha[TAM] = {0,0,0,0,0,0,0,0,0,0};
-    int topo = -1; // topo da lista
+    int topo = -1, valorRetirado; // topo da lista
 
     std::cout << "Pilha vazia!" << std::endl;
     imprime_vetor(pilha);
@@ -39,19 +50,12 @@ int main(){
         std::cout << std::endl;
     }
 
-    // push(5, pilha, &topo);
-    // push(7, pilha, &topo);
-    // push(10, pilha, &topo);
-    // push(3, pilha, &topo);
-    // push(9, pilha, &topo);
-    // push(12, pilha, &topo);
-    // push(101, pilha, &topo);
-    // push(90, pilha, &topo);
-    // push(87, pilha, &topo);
-    // push(15, pilha, &topo);
-    // push(10000, pilha, &topo); // pilha cheia
 
-      std::cout << std::endl  << std::endl << "Pilha completa!" << std::endl;
+    std::cout << std::endl  << std::endl << "Pilha completa!" << std::endl;
+    imprime_vetor(pilha);
+    std::cout << std::endl;
+
+    pop(pilha, &topo);
     imprime_vetor(pilha);
     std::cout << std::endl;
 }
